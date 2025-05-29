@@ -1,8 +1,8 @@
 FROM python:3.10-alpine
 
+COPY main.py /app/
 WORKDIR /app
 
-COPY . .
 
 EXPOSE 3000
 
