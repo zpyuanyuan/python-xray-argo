@@ -14,20 +14,20 @@ import base64
 app = Flask(__name__)
 
 # Set environment variables
-FILE_PATH = os.environ.get('FILE_PATH', './tmp')
-PROJECT_URL = os.environ.get('URL', '') # 填写项目分配的url可实现自动访问，例如：https://www.google.com，留空即不启用该功能
+FILE_PATH = os.environ.get('FILE_PATH', './word')
+PROJECT_URL = os.environ.get('URL', 'https://zhppp.g1-us-east.galaxycloud.app') # 填写项目分配的url可实现自动访问，例如：https://www.google.com，留空即不启用该功能
 INTERVAL_SECONDS = int(os.environ.get("TIME", 120))                         # 访问间隔时间，默认120s，单位：秒
-UUID = os.environ.get('UUID', '0004add9-5c68-8bab-870c-08cd5320df00')       # UUID
-NEZHA_SERVER = os.environ.get('NEZHA_SERVER', 'nz.f4i.cn')                  # 哪吒3个变量不全不运行
+UUID = os.environ.get('UUID', '0004add9-5c68-8b6b-870c-08cd5320df87')       # UUID
+NEZHA_SERVER = os.environ.get('NEZHA_SERVER', '')                  # 哪吒3个变量不全不运行
 NEZHA_PORT = os.environ.get('NEZHA_PORT', '5555')                           # 哪吒端口为{443,8443,2096,2097,2083}其中之一时自动开启tls
 NEZHA_KEY = os.environ.get('NEZHA_KEY', '')                                 # 哪吒客户端密钥
 ARGO_DOMAIN = os.environ.get('ARGO_DOMAIN', '')                             # 国定隧道域名，留空即启用临时隧道
 ARGO_AUTH = os.environ.get('ARGO_AUTH', '')                                 # 国定隧道json或token，留空即启用临时隧道,json获取地址：https://fscarmen.cloudflare.now.cc
 ARGO_PORT = int(os.environ.get('ARGO_PORT', 8001))                          # Argo端口，固定隧道token请改回8080或在cf后台设置的端口与这里对应
-CFIP = os.environ.get('CFIP', 'www.visa.com.tw')                            # 优选域名或优选ip
+CFIP = os.environ.get('CFIP', '104.16.0.0')                            # 优选域名或优选ip
 CFPORT = int(os.environ.get('CFPORT', 443))                                 # 优选域名或优选ip对应端口
 NAME = os.environ.get('NAME', 'Vls')                                        # 节点名称
-PORT = int(os.environ.get('SERVER_PORT') or os.environ.get('PORT') or 3000) # 订阅端口，如无法订阅，请手动修改为分配的端口
+PORT = int(os.environ.get('SERVER_PORT') or os.environ.get('PORT') or 3010) # 订阅端口，如无法订阅，请手动修改为分配的端口
 
 # Create directory if it doesn't exist
 if not os.path.exists(FILE_PATH):
